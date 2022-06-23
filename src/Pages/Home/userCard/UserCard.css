@@ -1,0 +1,21 @@
+.user-card {
+  display: inline-block;
+  width: 260px !important;
+  height: 350px !important;
+  background-color: rgb(117 93 191);
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.user-img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+.user-img img {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+}
