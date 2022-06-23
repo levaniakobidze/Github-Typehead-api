@@ -48,6 +48,8 @@ form {
   min-height: 500px;
   margin-top: 30px;
   padding: 0 10px;
+  display: flex;
+  justify-content: center;
 }
 
 @keyframes shakeing {

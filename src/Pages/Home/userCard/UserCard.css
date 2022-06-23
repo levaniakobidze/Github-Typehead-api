@@ -3,19 +3,37 @@
   width: 260px !important;
   height: 350px !important;
   background-color: rgb(117 93 191);
+  background-color: #fff;
   border-radius: 20px;
   text-decoration: none;
+  box-shadow: 0px 3px 10px 2px rgb(185 184 218);
+  transition: all 0.3s;
 }
-
+.user-card:hover {
+  box-shadow: 0px 4px 10px 5px rgb(185 184 218);
+}
 .user-img {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px 0;
+  border-radius: 20px 20px 0 0;
+  height: 130px;
+  background-color: rgb(117 93 191);
 }
 .user-img img {
-  width: 190px;
-  height: 190px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
+  position: absolute;
+  top: 40%;
+}
+.user-name {
+  color: rgb(117 93 191);
+  display: flex;
+  justify-content: center;
+  margin-top: 67px;
+  font-weight: bold;
+  font-size: 22px;
 }
