@@ -6,4 +6,19 @@
   left: 0;
   right: 0;
   background-color: rgb(117 93 191);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+.logo {
+  color: #fff;
+}
+ul {
+  color: #fff;
+  display: flex;
+  list-style: none;
+}
+li {
+  margin: 0 10px;
 }

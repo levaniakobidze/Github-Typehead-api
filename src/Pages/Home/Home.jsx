@@ -74,7 +74,8 @@ function Home() {
             github={users.html_url}
             followers={users.followers}
             following={users.following}
-            location={users.location}
+            repos={users.public_repos}
+            repos_url={users.repos_url}
           />
         )}
       </div>
