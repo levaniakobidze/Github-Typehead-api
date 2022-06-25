@@ -45,7 +45,6 @@ form {
 }
 .user-container {
   width: 100%;
-  min-height: 500px;
   margin-top: 30px;
   padding: 0 10px;
   display: flex;

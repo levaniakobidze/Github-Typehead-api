@@ -25,12 +25,12 @@ function Home() {
       console.log(error);
     }
   };
+  console.log(users);
 
   // onChange  function which fetchs the exact user data
   const onChangeHandler = (value) => {
     const url = `https://api.github.com/users/${value.replace(/\s/g, "")}`;
     fetchUsersData(url);
-    console.log(value);
   };
 
   // debounce function to have few requests
@@ -47,8 +47,6 @@ function Home() {
   };
 
   const optimizedFn = useCallback(debounce(onChangeHandler), []);
-
-  users && console.log(users);
 
   return (
     <div className='home'>
@@ -76,6 +74,7 @@ function Home() {
             following={users.following}
             repos={users.public_repos}
             repos_url={users.repos_url}
+            location={users.location}
           />
         )}
       </div>
