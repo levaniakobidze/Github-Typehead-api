@@ -9,6 +9,7 @@
   transition: all 0.3s;
   z-index: 999;
   margin: 20px 40px;
+  transition: all 0.5s;
 }
 
 .user-card:hover {
@@ -34,11 +35,11 @@
 }
 .user-name {
   color: rgb(117 93 191);
-  display: flex;
   justify-content: center;
-  margin-top: 77px;
   font-weight: bold;
+  margin-top: 77px;
   font-size: 22px;
+  display: flex;
 }
 
 .table {

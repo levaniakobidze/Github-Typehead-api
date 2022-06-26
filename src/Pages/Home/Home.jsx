@@ -3,12 +3,16 @@ import "./Home.css";
 import UserCard from "./userCard/UserCard";
 
 function Home() {
-  // states
+  /////////
+  // STATES
   const [users, setUsers] = useState([]);
   const [userExists, setUserExists] = useState(true);
+  const [loading, setLoading] = useState(false);
   const inputRef = useRef(null);
-  // Data fetch function
+  ///////////////////////
+  // FUNCTION TO FETCH THE DATA
   const fetchUsersData = async (URL) => {
+    setLoading(true);
     try {
       const response = await fetch(URL);
       const data = await response.json();
@@ -17,12 +21,14 @@ function Home() {
         return;
       }
       setUsers(data.items);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
   };
-
-  // useEffects to catch if user exists or not
+  console.log(loading);
+  /////////////////////////////////////////////
+  // USEEFFECT TO CATCH IF USER EXISTS OR NOT
   useEffect(() => {
     if (users.length > 0) {
       setUserExists(true);
@@ -34,26 +40,26 @@ function Home() {
 
   useEffect(() => {
     if (inputRef.current.value === "") {
-      console.log("carieli");
       setUserExists(true);
       return;
     }
   }, []);
-  // onChange  function which fetchs the exact user data
+  //////////////////////////////////////////////////////
+  // ONCHANGE FUNCTION WHICH FETCHES THE EXACT USER DATA
   const onChangeHandler = (value) => {
     const url = `https://api.github.com/search/users?q=${value.replace(
       /\s/g,
       ""
     )}`;
     if (inputRef.current.value === "") {
-      console.log("carieli");
+      setLoading(false);
       setUserExists(true);
       return;
     }
     fetchUsersData(url);
   };
-
-  // debounce function to have few requests
+  /////////////////////////////////////////
+  // DEBOUNCE FUNCTION TO HAVE A FEW REQUEST
   const debounce = (func) => {
     let timer;
     return function (...args) {
@@ -69,8 +75,8 @@ function Home() {
   const optimizedFn = useCallback(debounce(onChangeHandler), []);
 
   return (
-    <div className='home'>
-      <form action=''>
+    <div className='home' id='home'>
+      <form action='' onSubmit={(e) => e.preventDefault()}>
         <div className='input-wrapper'>
           <div className='search-input-cont'>
             <div className='style-div'></div>
@@ -83,16 +89,21 @@ function Home() {
           </div>
         </div>
       </form>
+      {loading && (
+        <p className='loading'>
+          <span></span>
+        </p>
+      )}
       <div className='user-container'>
         <p className='user-error'>
           {!userExists && "User you are looking for, doesn't exists"}
         </p>
         {users &&
           userExists &&
-          users.map((user, index) => {
+          users.map((user) => {
             return (
               <UserCard
-                key={index}
+                key={user.id}
                 name={user.login}
                 img={user.avatar_url}
                 github={user.html_url}
