@@ -81,7 +81,7 @@ function Home() {
           <div className='search-input-cont'>
             <div className='style-div'></div>
             <input
-              type='text'
+              type='search'
               placeholder='Search users'
               ref={inputRef}
               onChange={(e) => optimizedFn(e.target.value)}
