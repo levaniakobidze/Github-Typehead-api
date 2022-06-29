@@ -1,6 +1,7 @@
 import React, { useState, useRef, useCallback, useEffect } from "react";
 import "./Home.css";
 import UserCard from "./userCard/UserCard";
+import { BsSearch } from "react-icons/bs";
 
 function Home() {
   /////////
@@ -8,6 +9,7 @@ function Home() {
   const [users, setUsers] = useState([]);
   const [userExists, setUserExists] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [scroll, setScroll] = useState(false);
   const inputRef = useRef(null);
   ///////////////////////
   // FUNCTION TO FETCH THE DATA
@@ -71,15 +73,27 @@ function Home() {
       }, 500);
     };
   };
+  /////////////////////////////////////////
+  // STYLEING FUNCTION
+  const scrollFunc = () => {
+    if (window.scrollY >= 10) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
+  };
+  window.addEventListener("scroll", scrollFunc);
 
   const optimizedFn = useCallback(debounce(onChangeHandler), []);
 
   return (
     <div className='home' id='home'>
       <form action='' onSubmit={(e) => e.preventDefault()}>
-        <div className='input-wrapper'>
+        <div className={scroll ? "input-wrapper active" : "input-wrapper"}>
           <div className='search-input-cont'>
-            <div className='style-div'></div>
+            <div className='style-div'>
+              <BsSearch className='search-icon' />
+            </div>
             <input
               type='search'
               placeholder='Search users'

@@ -15,6 +15,13 @@
 .logo {
   color: #fff;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-icon {
+  margin: 0 5px;
+  font-size: 20px;
 }
 ul {
   color: #fff;

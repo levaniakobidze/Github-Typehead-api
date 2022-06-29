@@ -1,23 +1,31 @@
 .slide-up {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   background-color: rgb(117 93 191);
   border-radius: 50%;
   position: fixed;
   right: 2%;
   transition: all 0.5s;
   animation: slideUp 1s forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .slide-down {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   background-color: rgb(117 93 191);
   border-radius: 50%;
   position: fixed;
   right: 2%;
   transition: all 0.5s;
-
   animation: slideDown 1s forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slide-up-icon {
+  color: #fff;
 }
 
 @keyframes slideUp {

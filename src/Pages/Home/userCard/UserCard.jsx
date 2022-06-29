@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./UserCard.css";
 
 function UserCard(props) {
-  const { name, img, github, followers, following, repos, location } = props;
+  const { name, img, github } = props;
 
   return (
     <a target='_blank' href={github} className='user-card'>
